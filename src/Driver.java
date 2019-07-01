@@ -5,10 +5,14 @@ public class Driver {
 	public static void main(String[] args) {
 		
 		
+		String url = "jdbc:mysql://localhost:3306/employees?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String user = "manager";
+		String password = "manager";
+		
 		try {
 			
 			//get a connection to database
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employees?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "manager","manager");
+			Connection connection = DriverManager.getConnection(url, user, password);
 			
 			//create a statement
 			Statement statement = connection.createStatement();
