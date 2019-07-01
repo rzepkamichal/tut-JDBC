@@ -9,6 +9,8 @@ public class Driver {
 		String user = "manager";
 		String password = "manager";
 		
+		
+		
 		try {
 			
 			//get a connection to database
@@ -18,7 +20,7 @@ public class Driver {
 			Statement statement = connection.createStatement();
 			
 			//execute SQL query
-			ResultSet resultSet = statement.executeQuery("select * from titles");
+			ResultSet resultSet = statement.executeQuery("select * from departments");
 			
 			//process the result set
 			
