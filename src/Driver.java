@@ -29,6 +29,23 @@ public class Driver {
 				System.out.println(resultSet.getString(1)+", "+resultSet.getString(2));
 			}
 			
+			
+			String insertionStmt = "insert into departments "
+					+ "values ('d011', 'Administration')";
+			
+			//insertion
+			statement.executeUpdate(insertionStmt);
+			
+			
+			System.out.println("After insert:");
+			
+			resultSet.first();
+			
+			while(resultSet.next()) {
+				
+				System.out.println(resultSet.getString(1)+", "+resultSet.getString(2));
+			}
+			
 		}catch(Exception exc) {
 			exc.printStackTrace();
 		}
