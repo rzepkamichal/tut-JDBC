@@ -30,21 +30,42 @@ public class Driver {
 			}
 			
 			
+			
+			
+			/**insertion
 			String insertionStmt = "insert into departments "
 					+ "values ('d011', 'Administration')";
-			
-			//insertion
 			statement.executeUpdate(insertionStmt);
+			*/
 			
+			/**update
+			String updateStmt = "update departments"
+					+ " set dept_name = 'Administration Management'"
+					+ " where dept_no = 'd010' ";
 			
-			System.out.println("After insert:");
-			
+			statement.executeUpdate(updateStmt);
+			resultSet = statement.executeQuery("select * from departments");
 			resultSet.first();
+			System.out.println("\nAfter update:");
+			System.out.println(resultSet.getString(1)+", "+resultSet.getString(2));
+			*/
 			
+			/**Deletion
+			 
+			String deleteStmt = "delete from departments"
+					+" where dept_no = 'd010'";
+			int rowsAffected = statement.executeUpdate(deleteStmt);
+			
+			System.out.println("\nRows deleted:" + rowsAffected);
+			System.out.println("Delete Complete");
+			
+			resultSet = statement.executeQuery("select * from departments");
 			while(resultSet.next()) {
 				
 				System.out.println(resultSet.getString(1)+", "+resultSet.getString(2));
 			}
+			*/
+			
 			
 		}catch(Exception exc) {
 			exc.printStackTrace();
