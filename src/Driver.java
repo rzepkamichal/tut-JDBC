@@ -24,12 +24,11 @@ public class Driver {
 			
 			//process the result set
 			
+			/**
 			while(resultSet.next()) {
 				
 				System.out.println(resultSet.getString(1)+", "+resultSet.getString(2));
-			}
-			
-			
+			}*/
 			
 			
 			/**insertion
@@ -66,6 +65,25 @@ public class Driver {
 			}
 			*/
 			
+			/**Prepared Statements
+			 * 
+			 */
+			
+			PreparedStatement prepStmt = connection.prepareStatement("select e.last_name, s.salary "
+											+ " from salaries s"
+											+ " join employees e on e.emp_no = s.emp_no"
+											+ " where s.salary > ?"
+											+ " and e.last_name like ?");
+			
+			prepStmt.setInt(1,50000);
+			prepStmt.setString(2, "K%");
+			
+			ResultSet prepResultSet = prepStmt.executeQuery();
+			
+			while(prepResultSet.next()) {
+				
+				System.out.println(prepResultSet.getString(1)+", "+prepResultSet.getString(2));
+			}
 			
 		}catch(Exception exc) {
 			exc.printStackTrace();
